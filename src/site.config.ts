@@ -180,8 +180,7 @@ const siteConfig: SiteConfig = {
     formUrl: "#",
   },
   blog: {
-    description:
-      "Read about my space adventures, explorations and the aliens I've met on my journeys.",
+    description: "",
   },
   postsPerPage: 2,
   recentPostLimit: 3,

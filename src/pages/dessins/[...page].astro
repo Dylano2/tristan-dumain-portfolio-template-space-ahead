@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(blogs, { pageSize: siteConfig.postsPerPage || 2 });
 }
 
-type Props = { page: Page<CollectionEntry<"animation">> };
+type Props = { page: Page<CollectionEntry<"blogs">> };
 
 const { page } = Astro.props;
 const allPosts = page.data;
