@@ -13,7 +13,8 @@ import Pagination from "../../../components/Pagination.astro";
 import PostListPreview from "../../../components/PostListPreview.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const posts = (await getCollection("animation"));
+  const posts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
+  const tags = getAllTags(posts);
 
   return tags.flatMap((tag) => {
     const filteredPosts = getPostsByTag(posts, tag.id);

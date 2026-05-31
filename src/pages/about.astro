@@ -2,13 +2,14 @@
 import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import siteConfig from "../site.config";
-import coverImage from "../assets/images/1.png";
 ---
 
 <MainLayout activePage="about" pageTitle={siteConfig.title + " | About" }   showSubscribeForm={false}
 >
   <div class="page-content">
     <h1 class="sigmar-ff text-balance">{siteConfig.about?.title}</h1>
+    <!-- 
+    todo: change image
     <Image
       width={1024}
       height={600}
@@ -17,7 +18,7 @@ import coverImage from "../assets/images/1.png";
       class="rounded-4xl mb-8 mx-auto"
       src={coverImage}
       alt="An Astronaut walking on a terrain"
-    />
+    /> -->
     <p class="kanit-light text-left">
       {siteConfig.about?.text}
     </p>
