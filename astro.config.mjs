@@ -5,10 +5,12 @@ import swup from "@swup/astro";
 
 import tailwindcss from "@tailwindcss/vite";
 
+const isProd = process.env.NODE_ENV === "production";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:4321", //"https://djsiddz.github.io",
-  base: "/space-ahead",
+  site: "https://tristandumain.fr",
+  base: isProd ? "/" : "/space-ahead",
   integrations: [
     swup({
       theme: ["overlay", { direction: "to-top" }],

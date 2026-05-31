@@ -6,10 +6,10 @@ import { sortItemsByDateDesc, withBase } from "../utils/helpers";
 import PostCardPreview from "../components/PostCardPreview.astro";
 import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
-import heroImage from "../assets/images/pixeltrue-space-discovery.svg";
+import heroImage from "../assets/images/tristan_profil.jpg";
 import ArrowRight from "../icons/ArrowRight.astro";
 
-const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
+const allPosts = (await getCollection("blogs"));
 ---
 
 <MainLayout
@@ -61,16 +61,19 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
   </div>
   <div class="page-content">
     <div id="posts" class="flex flex-col items-center justify-center w-full">
-      <h2 class="sigmar-ff text-balance pt-0! pb-8!">Recent Stories</h2>
+      <h2 class="sigmar-ff text-balance pt-0! pb-8!">{siteConfig.index.title}</h2>
+      <p class="kanit-regular text-balance text-xs sm:text-base">
+        {siteConfig.index.subtitle}
+      </p>
       <div class="flex flex-col gap-8 max-w-full text-left">
         {
           allPosts
-            .slice(0, siteConfig.recentPostLimit)
+            .filter((post) => post.data.pref)
             .map((post) => <PostCardPreview post={post} />)
         }
       </div>
-      <Button href={withBase("/blog")} class="space-btn-filled mt-8">
-        View All Posts <ArrowRight class="w-5 h-5 fill-current ml-4" />
+      <Button href={withBase("/dessins")} class="space-btn-filled mt-8">
+    Voir tout mes dessins <ArrowRight class="w-5 h-5 fill-current ml-4" />
       </Button>
     </div>
   </div>

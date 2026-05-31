@@ -10,12 +10,10 @@ import siteConfig from "../../../site.config";
 import type { CollectionEntry } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
 import Pagination from "../../../components/Pagination.astro";
-import Subscribe from "../../../components/Subscribe.astro";
 import PostListPreview from "../../../components/PostListPreview.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const posts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
-  const tags = getAllTags(posts);
+  const posts = (await getCollection("animation"));
 
   return tags.flatMap((tag) => {
     const filteredPosts = getPostsByTag(posts, tag.id);

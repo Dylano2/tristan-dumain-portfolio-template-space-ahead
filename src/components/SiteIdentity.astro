@@ -12,8 +12,8 @@ type SiteIdentityProps = {
 };
 
 const {
-  logoWidth = 32,
-  logoHeight = 32,
+  logoWidth = 50,
+  logoHeight = 50,
   loading = "eager",
   textSize = "text-base",
   class: customClass,
@@ -21,12 +21,21 @@ const {
 ---
 
 <div class:list={["flex items-center gap-2", customClass]}>
-  <Image
-    src={withBase("/space-ahead-logo.png")}
+ <Image
+    src={withBase("/tristan-dumain-logo.png")}
     alt="Logo"
     width={logoWidth}
     height={logoHeight}
     loading={loading}
+    class="dark:hidden" 
+  />
+
+  <Image
+    src={withBase("/tristan-dumain-logo-dark.png")} alt="Logo"
+    width={logoWidth}
+    height={logoHeight}
+    loading={loading}
+    class="hidden dark:block" 
   />
   <span class:list={["sigmar-ff", textSize]}>{siteConfig.title}</span>
 </div>
