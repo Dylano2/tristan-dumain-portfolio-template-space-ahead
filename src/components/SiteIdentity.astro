@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import siteConfig from "../site.config";
-import { withBase } from "../utils/helpers";
 
 type SiteIdentityProps = {
   logoWidth?: number;
@@ -30,7 +29,7 @@ src="/tristan-dumain-logo.png"
     class="dark:hidden" 
   />
 
-  
+
   <Image
     src="/tristan-dumain-logo-dark.png"
      alt="Logo"

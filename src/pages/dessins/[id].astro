@@ -1,11 +1,7 @@
 ---
 import "../../styles/global.css";
 import { Image } from "astro:assets";
-import {
-  sortItemsByDateDesc,
-  createSlugFromTitle,
-  withBase,
-} from "../../utils/helpers";
+
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Button from "../../components/Button.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
@@ -14,27 +10,27 @@ import ArrowRight from "../../icons/ArrowRight.astro";
 import siteConfig from "../../site.config";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blogs");
-  const postCount = posts.length;
-  return posts.map((post, index) => ({
-    params: { id: post.id },
+  const dessins = await getCollection("dessins");
+  const dessinCount = dessins.length;
+  return dessins.map((dessin, index) => ({
+    params: { id: dessin.id },
     props: {
-      post,
-      prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-      nextPost: index !== 0 ? posts[index - 1] : null,
+      dessin,
+      prevPost: index + 1 !== dessinCount ? dessins[index + 1] : null,
+      nextPost: index !== 0 ? dessins[index - 1] : null,
     },
   }));
 }
 
 type Props = {
-  post: CollectionEntry<"blogs">;
-  prevPost: CollectionEntry<"blogs">;
-  nextPost: CollectionEntry<"blogs">;
+  dessin: CollectionEntry<"dessins">;
+  prevPost: CollectionEntry<"dessins">;
+  nextPost: CollectionEntry<"dessins">;
 };
 
-const { post, prevPost, nextPost } = Astro.props;
-const { title, pubDate, author, tags = [], image } = post.data;
-const { Content } = await render(post);
+const { dessin, prevPost, nextPost } = Astro.props;
+const { title, pubDate, author, tags = [], image } = dessin.data;
+const { Content } = await render(dessin);
 ---
 
 <MainLayout pageTitle={siteConfig.title + " | " + title}>
@@ -54,7 +50,7 @@ const { Content } = await render(post);
         tags.map((tag) => (
           <Button
             class="px-4! m-2"
-            href={withBase("/tags/" + createSlugFromTitle(tag))}
+            href={ ("/tags/" + createSlugFromTitle(tag))}
           >
             {tag}
           </Button>
@@ -64,14 +60,14 @@ const { Content } = await render(post);
     <div
       class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8"
     >
-      <Button class="back-link" href={withBase("/dessins")}>
+      <Button class="back-link" href={ ("/dessins")}>
         <ArrowLeft class="w-5 h-5 fill-current mr-4" /> Retour vers Mes dessins
       </Button>
       {
         (prevPost || nextPost) && nextPost && (
           <Button
             class="back-link text-balance"
-            href={withBase("/dessins/" + nextPost.id)}
+            href={ ("/dessins/" + nextPost.id)}
           >
             Next Post: {nextPost.data.title}{" "}
             <ArrowRight class="w-5 h-5 fill-current ml-4" />

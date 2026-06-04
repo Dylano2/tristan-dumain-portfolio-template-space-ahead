@@ -2,20 +2,19 @@
 import type { GetStaticPathsOptions, Page } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Pagination from "../../components/Pagination.astro";
-import { sortItemsByDateDesc } from "../../utils/helpers";
 import MainLayout from "../../layouts/MainLayout.astro";
 import siteConfig from "../../site.config";
-import PostCardPreview from "../../components/PostCardPreview.astro";
+import DessinCardPreview from "../../components/DessinCardPreview.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const blogs = (await getCollection("blogs")).sort(sortItemsByDateDesc);
-  return paginate(blogs, { pageSize: siteConfig.postsPerPage || 2 });
+  const dessins = (await getCollection("dessins"));
+  return paginate(dessins, { pageSize: siteConfig.postsPerPage || 2 });
 }
 
-type Props = { page: Page<CollectionEntry<"blogs">> };
+type Props = { page: Page<CollectionEntry<"dessins">> };
 
 const { page } = Astro.props;
-const allPosts = page.data;
+const allDessins = page.data;
 ---
 
 <MainLayout activePage="blog" pageTitle={siteConfig.title + " | Blog Archive"}>
@@ -30,7 +29,7 @@ const allPosts = page.data;
     <div
       class="flex flex-col text-left gap-8 mb-4 text-sm sm:text-base max-w-fit mx-auto"
     >
-      {allPosts.map((post) => <PostCardPreview post={post} />)}
+      {allDessins.map((dessin) => <DessinCardPreview dessin={dessin} />)}
     </div>
     <Pagination page={page} class="mb-16 sm:mb-24" />
   </div>

@@ -2,14 +2,13 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
-import { withBase } from "../utils/helpers";
 
-type Props = { post: CollectionEntry<"blogs"> };
-const { post } = Astro.props;
-const { title, pubDate, description, image } = post.data;
+type Props = { dessin: CollectionEntry<"dessins"> };
+const { dessin } = Astro.props;
+const { title, pubDate, description, image } = dessin.data;
 ---
 
-<a class="font-bold" href={withBase("/dessins/" + post.id)}>
+<a class="font-bold" href={ ("/dessins/" + dessin.id)}>
   <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
     {
       image && image.url && (

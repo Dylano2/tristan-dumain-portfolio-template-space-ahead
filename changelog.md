@@ -62,7 +62,7 @@ This is a monthly update release intended to keep the dependencies up-to-date, a
 ### Updates
 
 - Add control for Blog page content from site config.
-- Use withBase helper for site logo.
+- Use helper for site logo.
 
 ## v0.11.2
 
@@ -84,7 +84,7 @@ This is a monthly update release intended to keep the dependencies up-to-date, a
 - Update Astro, Tailwind & other deps to latest versions.
 - Fix & improve RSS generation.
 - Fix & improve sitemap generation.
-- Implement consistent usage of siteConfig and withBase helper.
+- Implement consistent usage of siteConfig and helper.
 - Readme updated with preview image.
 
 ## v0.10.0
@@ -93,7 +93,7 @@ This is a monthly update release intended to keep the dependencies up-to-date, a
 
 - New contacts page.
 - New Astro Sitemap generator integration.
-- New withBase() utility for centralized usage of `import.meta.BASE_URL`.
+- New () utility for centralized usage of `import.meta.BASE_URL`.
 - Subscribe component moved to the shared layout, with option to hide on individual page.
 - Eyebrow is now conditionally displayed, based on value set in site config.
 - Control number of Recent Posts displayed on home page, via site config.

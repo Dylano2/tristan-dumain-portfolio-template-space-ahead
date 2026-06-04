@@ -1,4 +1,4 @@
-import { withBase } from "./utils/helpers";
+import {} from "./utils/helpers";
 
 export type Image = {
   src: string;
@@ -80,23 +80,23 @@ const siteConfig: SiteConfig = {
   headerNavLinks: [
     {
       text: "maison",
-      href: withBase("/"),
+      href: "/",
     },
     // {
     //   text: "animations",
-    //   href: withBase("/animations"),
+    //   href:  ("/animations"),
     // },
     {
       text: "dessins",
-      href: withBase("/tags"),
+      href: "/dessins",
     },
     // {
     //   text: "tatouage",
-    //   href: withBase("/about"),
+    //   href:  ("/about"),
     // },
     {
       text: "contact",
-      href: withBase("/contact"),
+      href: "/contact",
     },
   ],
   index: {
@@ -107,15 +107,15 @@ const siteConfig: SiteConfig = {
   footerNavLinks: [
     {
       text: "contact",
-      href: withBase("/contact"),
+      href: "/contact",
     },
     {
       text: "maison",
-      href: withBase("/"),
+      href: "/",
     },
     {
       text: "sitemap",
-      href: withBase("/sitemap-index.xml"),
+      href: "/sitemap-index.xml",
     },
   ],
   socialLinks: [
@@ -143,7 +143,7 @@ const siteConfig: SiteConfig = {
     actions: [
       {
         text: "contact",
-        href: withBase("/contact"),
+        href: "/contact",
       },
     ],
   },

@@ -1,27 +1,25 @@
 ---
 import { type CollectionEntry } from "astro:content";
 import ArrowRight from "../icons/ArrowRight.astro";
-import FormattedDate from "./FormattedDate.astro";
-import { withBase } from "../utils/helpers";
 
 type Props = {
-  post: CollectionEntry<"blogs">;
+  dessin: CollectionEntry<"dessins">;
   class?: string;
   headingLevel?: "h2" | "h3";
 };
 
-const { post, class: className, headingLevel = "h2" } = Astro.props;
-const { title, pubDate, description } = post.data;
+const { dessin, class: className, headingLevel = "h2" } = Astro.props;
+const { title, pubDate, description } = dessin.data;
 const TitleTag = headingLevel;
 ---
 
 <a
   class:list={["flex justify-between items-start gap-8 group", className]}
-  href={withBase("/blog/" + post.id)}
+  href={ ("/dessins/" + dessin.id)}
 >
   <div class="grow">
     <TitleTag class="sigmar-ff">{title}</TitleTag>
-    <FormattedDate date={pubDate} />
+    <!-- <FormattedDate date={pubDate} /> -->
     {description && <p>{description}</p>}
   </div>
   <div
