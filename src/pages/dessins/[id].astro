@@ -8,6 +8,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import ArrowLeft from "../../icons/ArrowLeft.astro";
 import ArrowRight from "../../icons/ArrowRight.astro";
 import siteConfig from "../../site.config";
+import OptimizedImage from "../../components/OptimizedImage.astro";
 
 export async function getStaticPaths() {
   const dessins = await getCollection("dessins");
@@ -37,9 +38,14 @@ const { Content } = await render(dessin);
   <div class="page-content">
     <h1 class="sigmar-ff text-center text-balance">{title}</h1>
    
-    {
+    <!-- {
       image && image.url && (
         <Image class="mb-8 my-6" src={image?.url} alt={image?.alt || ""} />
+      )
+    } -->
+       {
+      image && image.url && (
+        <OptimizedImage class="mb-8 my-6" src={image?.url} alt={image?.alt || ""} />
       )
     }
     <!-- <div class="font-light text-left">

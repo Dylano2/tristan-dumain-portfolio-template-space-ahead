@@ -6,6 +6,7 @@ import FormattedDate from "./FormattedDate.astro";
 type Props = { dessin: CollectionEntry<"dessins"> };
 const { dessin } = Astro.props;
 const { title, pubDate, description, image } = dessin.data;
+console.log("DessinCardPreview props:", dessin);
 ---
 
 <a class="font-bold" href={ ("/dessins/" + dessin.id)}>

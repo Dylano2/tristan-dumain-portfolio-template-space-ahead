@@ -101,8 +101,7 @@ const siteConfig: SiteConfig = {
   ],
   index: {
     title: "Mes prefs :",
-    subtitle:
-      "voici une liste des choses sur lesquelles j'ai trop aimé travailler",
+    subtitle: "voici une liste de mes dessins favoris",
   },
   footerNavLinks: [
     {
@@ -182,7 +181,7 @@ const siteConfig: SiteConfig = {
   blog: {
     description: "",
   },
-  postsPerPage: 2,
+  postsPerPage: 5,
   recentPostLimit: 3,
 };
 

@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, alt, width, height, class: className, ...props } = Astro.props;
+---
+
+<div class="relative overflow-hidden  rounded-lg group">
+  <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 img-loader">
+    <div class="w-8 h-8 border-4 border-zinc-600 border-t-indigo-500 rounded-full animate-spin"></div>
+  </div>
+
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    class:list={[
+      className,
+      "opacity-0 transition-opacity duration-500 ease-in-out img-element"
+    ]}
+    {...props}
+    onload="this.classList.remove('opacity-0'); this.previousElementSibling.remove();"
+  />
+</div>
