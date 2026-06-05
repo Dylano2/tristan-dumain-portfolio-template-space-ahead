@@ -37,15 +37,9 @@ const { Content } = await render(dessin);
 <MainLayout pageTitle={siteConfig.title + " | " + title}>
   <div class="page-content">
     <h1 class="sigmar-ff text-center text-balance">{title}</h1>
-   
-    <!-- {
-      image && image.url && (
-        <Image class="mb-8 my-6" src={image?.url} alt={image?.alt || ""} />
-      )
-    } -->
        {
       image && image.url && (
-        <OptimizedImage class="mb-8 my-6" src={image?.url} alt={image?.alt || ""} />
+        <OptimizedImage class="mb-8 my-6 mx-auto" src={image?.url} alt={image?.alt || ""} />
       )
     }
     <!-- <div class="font-light text-left">
